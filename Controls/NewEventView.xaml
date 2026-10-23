@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Jalender.Controls.NewEventView">
+
+    <VerticalStackLayout Spacing="14"
+                         Padding="16">
+
+        <Label Text="New Event"
+               FontSize="24"
+               FontAttributes="Bold"/>
+
+        <!-- Title -->
+        <VerticalStackLayout Spacing="4">
+            <Label Text="Title"
+                   FontAttributes="Bold"/>
+            <Entry x:Name="TitleEntry"
+                   Placeholder="Event title"
+                   MaxLength="100"/>
+        </VerticalStackLayout>
+
+        <!-- Start -->
+        <VerticalStackLayout Spacing="4">
+            <Label Text="Starts"
+                   FontAttributes="Bold"/>
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="8">
+                <DatePicker x:Name="StartDatePicker"
+                            Grid.Column="0"/>
+                <TimePicker x:Name="StartTimePicker"
+                            Grid.Column="1"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!-- End -->
+        <VerticalStackLayout Spacing="4">
+            <Label Text="Ends"
+                   FontAttributes="Bold"/>
+            <Grid ColumnDefinitions="*,*"
+                  ColumnSpacing="8">
+                <DatePicker x:Name="EndDatePicker"
+                            Grid.Column="0"/>
+                <TimePicker x:Name="EndTimePicker"
+                            Grid.Column="1"/>
+            </Grid>
+        </VerticalStackLayout>
+
+        <!-- Notes -->
+        <VerticalStackLayout Spacing="4">
+            <Label Text="Notes"
+                   FontAttributes="Bold"/>
+            <Border StrokeThickness="1"
+                    Stroke="Gray"
+                    Padding="4">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="6"/>
+                </Border.StrokeShape>
+                <Editor x:Name="NotesEditor"
+                        Placeholder="Add notes..."
+                        AutoSize="TextChanges"
+                        MinimumHeightRequest="100"/>
+            </Border>
+        </VerticalStackLayout>
+
+        <!-- Validation message -->
+        <Label x:Name="ErrorLabel"
+               TextColor="Red"
+               IsVisible="False"/>
+
+        <!-- Buttons -->
+        <Grid ColumnDefinitions="*,*"
+              ColumnSpacing="8">
+            <Button Grid.Column="0"
+                    Text="Cancel"
+                    Clicked="OnCancelClicked"/>
+            <Button Grid.Column="1"
+                    Text="Save"
+                    Clicked="OnSaveClicked"/>
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentView>

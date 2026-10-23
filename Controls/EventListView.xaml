@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Jalender.Models"
+             x:Class="Jalender.Controls.EventListView">
+
+    <CollectionView x:Name="EventsCollection"
+                    Margin="16">
+
+        <CollectionView.Header>
+            <Label Text="Upcoming Events"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   Margin="0,16,0,8"/>
+        </CollectionView.Header>
+
+        <CollectionView.ItemsLayout>
+            <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="10"/>
+        </CollectionView.ItemsLayout>
+
+        <CollectionView.EmptyView>
+            <Label Text="No events yet. Add one using the form."
+                   TextColor="Gray"/>
+        </CollectionView.EmptyView>
+
+        <CollectionView.ItemTemplate>
+            <DataTemplate x:DataType="models:CalendarEvent">
+                <Border StrokeThickness="1"
+                        Stroke="Gray"
+                        Padding="12">
+                    <Border.StrokeShape>
+                        <RoundRectangle CornerRadius="8"/>
+                    </Border.StrokeShape>
+                    <Grid ColumnDefinitions="*,Auto"
+                          ColumnSpacing="12">
+                        <VerticalStackLayout Grid.Column="0"
+                                             Spacing="4">
+                            <Label Text="{Binding Title}"
+                                   FontSize="18"
+                                   FontAttributes="Bold"/>
+                            <Label Text="{Binding StartDate, StringFormat='Starts: {0:ddd, MMM d, yyyy  h:mm tt}'}"/>
+                            <Label Text="{Binding EndDate, StringFormat='Ends: {0:ddd, MMM d, yyyy  h:mm tt}'}"/>
+                            <Label Text="{Binding Notes}"
+                                   TextColor="Gray"/>
+                        </VerticalStackLayout>
+
+                        <Button Grid.Column="1"
+                                Text="Delete"
+                                VerticalOptions="Start"
+                                Clicked="OnDeleteClicked"/>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+
+    </CollectionView>
+</ContentView>
