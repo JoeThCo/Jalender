@@ -1,3 +1,3 @@
 Jalendar
 Simple Calender app that only shows events. Made in .NET MAUI.
-<img width="1011" height="687" alt="Screenshot 2026-10-22 at 3 03 06 PM" src="https://github.com/user-attachments/assets/6ca4c03b-d3d4-4437-88cc-aaffa53d203a" />
+<img width="1016" height="761" alt="Screenshot_2026-10-23_at_5 02 14_PM" src="https://github.com/user-attachments/assets/909f6ec5-9a17-4117-ae4f-2677be794545" />
